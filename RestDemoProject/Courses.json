@@ -1,0 +1,44 @@
+{
+	"instructor":"RahulShetty",
+	"url":"rahulshettyacademy.com",
+	"services":"projectsupport",
+	"expertise":"Automation",
+	"courses":
+	{
+		"WebAutomation"
+		[
+						{
+							"courseTitle":"Selenium WebDriver Java",
+							"price":"50"
+						},
+						{
+							"courseTitle":"Cypress",
+							"price":"40"
+						},
+						{
+							"courseTitle":"Protractor",
+							"price":"40"
+						}
+		],
+		"api"
+		[
+				{
+					"courseTitle":"RestAssured Automation Using Java",
+					"price":"50"
+				},
+			 
+				{
+					"courseTitle":"SoapUI Webservices Testing",
+					"price":"40"
+				},
+		]
+		"mobile"
+		[
+				{
+					"courseTitle":"Appium",
+					"price":"60"
+				},
+		],
+	},
+	"linkdin":"https://www.linkdin.com/rahul-shetty-trainer"
+}

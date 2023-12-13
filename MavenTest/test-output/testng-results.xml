@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-08-29T14:44:24 IST" name="Default suite" finished-at="2023-08-29T14:44:24 IST" duration-ms="326">
+    <groups>
+    </groups>
+    <test started-at="2023-08-29T14:44:24 IST" name="Default test" finished-at="2023-08-29T14:44:24 IST" duration-ms="326">
+      <class name="com.test.ExtentTest_1">
+        <test-method is-config="true" signature="OepnBrowser()[pri:0, instance:com.test.ExtentTest_1@7ce69770]" started-at="2023-08-29T14:44:20 IST" name="OepnBrowser" finished-at="2023-08-29T14:44:24 IST" duration-ms="3653" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OepnBrowser -->
+        <test-method is-config="true" signature="startTest()[pri:0, instance:com.test.ExtentTest_1@7ce69770]" started-at="2023-08-29T14:44:24 IST" name="startTest" finished-at="2023-08-29T14:44:24 IST" duration-ms="130" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method signature="test()[pri:0, instance:com.test.ExtentTest_1@7ce69770]" started-at="2023-08-29T14:44:24 IST" name="test" finished-at="2023-08-29T14:44:24 IST" duration-ms="10" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method is-config="true" signature="endTest()[pri:0, instance:com.test.ExtentTest_1@7ce69770]" started-at="2023-08-29T14:44:24 IST" name="endTest" finished-at="2023-08-29T14:44:24 IST" duration-ms="154" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.test.ExtentTest_1@7ce69770]" started-at="2023-08-29T14:44:24 IST" name="closeBrowser" finished-at="2023-08-29T14:44:24 IST" duration-ms="207" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.test.ExtentTest_1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
