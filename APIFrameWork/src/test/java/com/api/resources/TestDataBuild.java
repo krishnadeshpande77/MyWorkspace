@@ -8,14 +8,14 @@ import com.pojoClasses.Location;
 
 public class TestDataBuild
 {
-	public AddPlace addPlacePayload()
+	public AddPlace addPlacePayload(String name , String language , String address)
 	{
 		AddPlace add = new AddPlace();
 		add.setAccuracy(50);
-		add.setName("Frontline house");
-		add.setPhone_number("(+91) 983 893 3937");
-		add.setAddress("29, side layout, cohen 09");
-		add.setLanguage("French-IN");
+		add.setName(name);
+		add.setPhone_number("(+91) 999 636 9898");
+		add.setAddress(address);
+		add.setLanguage(language);
 		add.setWebsite("https://rahulshettyacademy.com");
 		List<String> mylist = new ArrayList<String>();
 		mylist.add("shoe park");

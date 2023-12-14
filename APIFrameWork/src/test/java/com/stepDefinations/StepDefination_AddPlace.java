@@ -26,15 +26,15 @@ public class StepDefination_AddPlace extends Utils
 	Response response ;
 	TestDataBuild testdatabuild = new TestDataBuild();
 	
-	@Given("Add Place Payload")
-	public void add_place_payload() 
+	@Given("Add Place Payload with {string} {string} {string}")
+	public void add_place_payload(String name , String language , String address) throws Exception 
 	{	
-		 resspec =new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
-		 res=given().spec(requestSpecification()).body(testdatabuild.addPlacePayload());
+		 res=given().spec(requestSpecification()).body(testdatabuild.addPlacePayload(name , language , address));
 	}
 
 	@When("user calls {string} with Post http request")
 	public void user_calls_with_post_http_request(String string) {
+		resspec=new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
 		 response =res.when().post("/maps/api/place/add/json").then().spec(resspec).extract().response();
 	}
 
