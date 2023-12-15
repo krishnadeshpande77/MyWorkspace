@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.api.resources.ApiResources;
 import com.api.resources.TestDataBuild;
 import com.api.resources.Utils;
 import com.pojoClasses.*;
@@ -32,10 +33,14 @@ public class StepDefination_AddPlace extends Utils
 		 res=given().spec(requestSpecification()).body(testdatabuild.addPlacePayload(name , language , address));
 	}
 
-	@When("user calls {string} with Post http request")
-	public void user_calls_with_post_http_request(String string) {
+	@When("user calls {string} with {string} http request")
+	public void user_calls_with_post_http_request(String resource,String httpMethodName) {
+		ApiResources apiResources = ApiResources.valueOf(resource);
 		resspec=new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
-		 response =res.when().post("/maps/api/place/add/json").then().spec(resspec).extract().response();
+		if(httpMethodName.equalsIgnoreCase("POST"))
+			    response =res.when().post(apiResources.getResources());
+		else if((httpMethodName.equalsIgnoreCase("GET")))
+				response =res.when().get(apiResources.getResources());
 	}
 
 	@Then("the API call got success with status code {int}")
@@ -45,9 +50,17 @@ public class StepDefination_AddPlace extends Utils
 
 	@Then("{string} in response body is {string}")
 	public void in_response_body_is(String keyval, String Expectedvalue) {
-	   String res = response.asString();
-	   JsonPath js= new JsonPath(res);
-	   assertEquals( js.get(keyval).toString(),Expectedvalue);
+	   
+	   assertEquals(getJsonPath(response, keyval),Expectedvalue);
 	}
 	
+	@Then("Verify place_Id created maps to {string} using {string}")
+	public void verify_place_id_created_maps_to_using(String expectedname, String httpMethodName) throws Exception
+	{
+		String place_id = getJsonPath(response, "place_id");
+		res=given().spec(requestSpecification()).queryParam("place_id", place_id);
+		user_calls_with_post_http_request(httpMethodName,"GET");
+		String actualname = getJsonPath(response, "name");
+		assertEquals(actualname,expectedname);
+	}
 }
