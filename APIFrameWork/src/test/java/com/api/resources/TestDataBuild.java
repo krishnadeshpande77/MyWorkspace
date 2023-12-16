@@ -25,7 +25,11 @@ public class TestDataBuild
 		l.setLat(-38.383494);
 		l.setLng(33.427362);
 		add.setLocation(l);
-		return add;
-		
+		return add;	
+	}
+	
+	public String deletePlacePayload(String placeId)
+	{
+		return "{\r\n    \"place_id\":\""+placeId+"\"\r\n}";
 	}
 }

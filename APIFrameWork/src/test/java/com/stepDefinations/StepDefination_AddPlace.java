@@ -26,6 +26,7 @@ public class StepDefination_AddPlace extends Utils
 	RequestSpecification res;
 	Response response ;
 	TestDataBuild testdatabuild = new TestDataBuild();
+	static String place_id;
 	
 	@Given("Add Place Payload with {string} {string} {string}")
 	public void add_place_payload(String name , String language , String address) throws Exception 
@@ -36,6 +37,7 @@ public class StepDefination_AddPlace extends Utils
 	@When("user calls {string} with {string} http request")
 	public void user_calls_with_post_http_request(String resource,String httpMethodName) {
 		ApiResources apiResources = ApiResources.valueOf(resource);
+		System.out.println(apiResources.getResources());
 		resspec=new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
 		if(httpMethodName.equalsIgnoreCase("POST"))
 			    response =res.when().post(apiResources.getResources());
@@ -57,10 +59,16 @@ public class StepDefination_AddPlace extends Utils
 	@Then("Verify place_Id created maps to {string} using {string}")
 	public void verify_place_id_created_maps_to_using(String expectedname, String httpMethodName) throws Exception
 	{
-		String place_id = getJsonPath(response, "place_id");
+		 place_id = getJsonPath(response, "place_id");
 		res=given().spec(requestSpecification()).queryParam("place_id", place_id);
 		user_calls_with_post_http_request(httpMethodName,"GET");
 		String actualname = getJsonPath(response, "name");
 		assertEquals(actualname,expectedname);
+	}
+	
+	@Given("DeletePlace Payload")
+	public void delete_place_payload() throws Exception
+	{
+	   res=given().spec(requestSpecification()).body(testdatabuild.deletePlacePayload(place_id));
 	}
 }
